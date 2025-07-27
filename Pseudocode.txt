@@ -1,0 +1,19 @@
+Write the logic to get the computer choice
+Create a new function named getComputerChoice
+and it will randomly return one of the following string values rock, paper or scissors 
+
+---
+so first need to assign paper, scissors, rock to a number so Math.Rand can pick those values.
+That way it could only be around those values not bigger or smaller.
+We know thats math.random returns greater than 0 but less than 1
+
+---
+Write the logic to get human choice
+Create a new function named getHumanChoice
+Return one of the valid choices depending on what the user inputs
+
+---
+So we will be using the prompt for this one
+And we do not need to handle any errors
+Still make it that rocks = Rocks 
+Maybe use a lowercase or uppercase letter from before

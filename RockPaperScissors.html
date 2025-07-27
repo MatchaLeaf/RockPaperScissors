@@ -1,3 +1,33 @@
-<script>
-    console.log("hello world!");
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+
+        function getComputerChoice(){
+            let minCeil = Math.ceil(1);
+            let maxFloor = Math.floor(4);
+            let choice = Math.floor(Math.random() * (maxFloor- minCeil) + minCeil);
+
+            if (choice == 3){
+                choice = "Rock";
+            } else if (choice == 2){
+                choice = "Scissors"
+            }else {
+                choice = "Paper"
+            }
+
+            return console.log("Computer Chooses " + choice);
+
+        }
+
+        getComputerChoice();
+
+     
+    </script>
+</body>
+</html>
