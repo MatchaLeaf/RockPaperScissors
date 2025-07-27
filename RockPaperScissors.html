@@ -7,6 +7,7 @@
 </head>
 <body>
     <script>
+        getHumanChoice();
 
         function getComputerChoice(){
             let minCeil = Math.ceil(1);
@@ -27,7 +28,22 @@
 
         getComputerChoice();
 
-     
+        function getHumanChoice(){
+             let humanAnswer = prompt("Rock, Paper, Scissors");
+            switch(humanAnswer.toLowerCase()){
+                case "paper":
+                    console.log("paper");
+                    break;
+                case  "rock":
+                    console.log("rock");
+                    break;
+                case  "scissors":
+                    console.log("scissors");
+                   break;
+                default:
+                    console.log("Invalid Input");
+            }
+        }
     </script>
 </body>
 </html>
