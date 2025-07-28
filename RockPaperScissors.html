@@ -7,43 +7,79 @@
 </head>
 <body>
     <script>
-        getHumanChoice();
+        //Declare Score Variables
+        let humanScore = 0;
+        let computerScore = 0;
 
         function getComputerChoice(){
+
+            //Create the max variable along with min variable
             let minCeil = Math.ceil(1);
             let maxFloor = Math.floor(4);
-            let choice = Math.floor(Math.random() * (maxFloor- minCeil) + minCeil);
 
-            if (choice == 3){
-                choice = "Rock";
-            } else if (choice == 2){
-                choice = "Scissors"
+            //Generate a random number between 1 and 3
+            let comChoice = Math.floor(Math.random() * (maxFloor- minCeil) + minCeil);
+
+            //Assign numbers into strings          
+            if (comChoice == 3){
+                comChoice = "Rock";
+                console.log("Computer chose Rock!")
+                return "rock";
+            } else if (comChoice == 2){
+                comChoice = "Scissors"
+                console.log("Computer chose Scissors!")
+                return "scissors"
             }else {
-                choice = "Paper"
+                comChoice = "Paper"
+                console.log("Computer chose Paper!")
+                return "paper"
             }
-
-            return console.log("Computer Chooses " + choice);
 
         }
 
-        getComputerChoice();
-
         function getHumanChoice(){
-             let humanAnswer = prompt("Rock, Paper, Scissors");
+            //Ask for user input
+              let humanAnswer = prompt("Rock, Paper, Scissors");
+
+             //Convert input into lowercase and output it
             switch(humanAnswer.toLowerCase()){
                 case "paper":
                     console.log("paper");
-                    break;
+                    return "paper";
                 case  "rock":
                     console.log("rock");
-                    break;
+                    return "rock";
                 case  "scissors":
                     console.log("scissors");
-                   break;
+                    return"scissors";
                 default:
                     console.log("Invalid Input");
+                    return "invalid";
             }
         }
+
+        function playRound(humanChoice, computerChoice){
+          humanChoice = humanSelection;
+          computerChoice = computerSelection;
+          if((humanChoice == "rock") && (computerChoice == "scissors")){
+            console.log("You win as rock beats paper");
+          }  else if((humanChoice == "paper") && (computerChoice == "rock")){
+            console.log("You win as paper beats rock");
+          }else if((humanChoice == "scissors") && (computerChoice == "paper")){
+            console.log("You win as scissors beats paper");
+         }else if(humanChoice == computerChoice){
+            console.log("You drew");
+         }else{
+            console.log("You lose");
+         }
+        }   
+
+        const humanSelection = getHumanChoice() ;
+        const computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+        
+
     </script>
 </body>
 </html>
