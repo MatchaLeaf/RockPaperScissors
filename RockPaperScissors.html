@@ -7,9 +7,9 @@
 </head>
 <body>
     <script>
-        //Declare Score Variables
-        let humanScore = 0;
-        let computerScore = 0;
+        
+          let humanScore = 0;
+          let computerScore = 0;
 
         function getComputerChoice(){
 
@@ -44,13 +44,13 @@
              //Convert input into lowercase and output it
             switch(humanAnswer.toLowerCase()){
                 case "paper":
-                    console.log("paper");
+                    console.log("You chose paper");
                     return "paper";
                 case  "rock":
-                    console.log("rock");
+                    console.log("You chose rock");
                     return "rock";
                 case  "scissors":
-                    console.log("scissors");
+                    console.log("You chose scissors");
                     return"scissors";
                 default:
                     console.log("Invalid Input");
@@ -58,28 +58,76 @@
             }
         }
 
-        function playRound(humanChoice, computerChoice){
-          humanChoice = humanSelection;
-          computerChoice = computerSelection;
-          if((humanChoice == "rock") && (computerChoice == "scissors")){
-            console.log("You win as rock beats paper");
-          }  else if((humanChoice == "paper") && (computerChoice == "rock")){
-            console.log("You win as paper beats rock");
-          }else if((humanChoice == "scissors") && (computerChoice == "paper")){
-            console.log("You win as scissors beats paper");
-         }else if(humanChoice == computerChoice){
-            console.log("You drew");
-         }else{
-            console.log("You lose");
-         }
-        }   
+        function playRound(humanChoice, computerChoice){   
+            //change this to undefined so when it resets the values
+            if(humanSelection == undefined || computerChoice == undefined){
+                //Reset the values
+                humanChoice = humanSelection;
+                computerChoice = computerSelection
+            }else{
+                humanSelection = humanChoice;
+                computerSelection = computerChoice;
+            }
+            
+            
+            if((humanChoice == "rock") && (computerChoice == "scissors")){
+                return "win";
+                
+            }  else if((humanChoice == "paper") && (computerChoice == "rock")){
+                return "win";
+            }else if((humanChoice == "scissors") && (computerChoice == "paper")){
+                return "win";
+            }else if(humanChoice == computerChoice){
+                return "draw";
+            }else{
+                return "lose";
+            }
+        }
 
-        const humanSelection = getHumanChoice() ;
-        const computerSelection = getComputerChoice();
 
-        playRound(humanSelection, computerSelection);
+        function playGame(){
+            humanSelection = getHumanChoice() ;
+            computerSelection = getComputerChoice();
+
+                if(playRound() == "win"){
+                    humanScore = humanScore + 1;
+                    console.log("You win");
+                    console.log("human score: " + humanScore);
+                    console.log("computer score: " + computerScore);
+                    console.log("");
+                    alert("You Won");
+                    
+
+                }else if(playRound() == "lose"){
+                    computerScore = computerScore + 1;
+                    console.log("You lose");
+                    console.log("human score: " + humanScore);
+                    console.log("computer score: " + computerScore);
+                    console.log("");
+                    alert("You Lost");
+                    
+
+                }else{ 
+                    console.log("You drew");
+                    console.log("human score: " + humanScore);
+                    console.log("computer score: " + computerScore);
+                    console.log("");
+                    alert("You Drew");
+                
+                }     
+         
+        }
+        for(let rounds = 0; rounds < 5; rounds++){
+        playGame();
         
-
+        }
+        if(humanScore > computerScore){
+            console.log("Humans win");
+        }else if (computerScore > humanScore){
+            console.log("Computers Win");
+        }else{
+            console.log("Tied")
+        }
     </script>
 </body>
 </html>
