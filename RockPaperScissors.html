@@ -88,8 +88,9 @@
         function playGame(){
             humanSelection = getHumanChoice() ;
             computerSelection = getComputerChoice();
+            let result = playRound();
 
-                if(playRound() == "win"){
+                if(result == "win"){
                     humanScore = humanScore + 1;
                     console.log("You win");
                     console.log("human score: " + humanScore);
@@ -98,7 +99,7 @@
                     alert("You Won");
                     
 
-                }else if(playRound() == "lose"){
+                }else if(result == "lose"){
                     computerScore = computerScore + 1;
                     console.log("You lose");
                     console.log("human score: " + humanScore);
